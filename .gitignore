@@ -360,7 +360,7 @@ MigrationBackup/
 ### Unity ###
 # This .gitignore file should be placed at the root of your Unity project directory
 #
-# Get latest from https://github.com/github/gitignore/blob/master/Unity.gitignore
+# Get latest from https://github.com/github/gitignore/blob/master/Unity.gitignoregit 
 /[Ll]ibrary/
 /[Tt]emp/
 /[Oo]bj/
@@ -418,3 +418,11 @@ InitTestScene*.unity
 
 
 # End of https://www.toptal.com/developers/gitignore/api/unity,csharp
+
+### TEXTURES ####
+*.tga
+*.tga.meta
+*.mat
+*.mat.meta
+*.jpg
+*.jpg.meta

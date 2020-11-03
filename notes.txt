@@ -1,0 +1,6 @@
+// TODO
+
+// TODO: DONE
+
+#0.1
+	+ moves controller for player GameObject

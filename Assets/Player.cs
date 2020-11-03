@@ -7,12 +7,67 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        this.GetComponent<Renderer>().material.color = Color.red;
+        // TEST
+        //this.GetComponent<Renderer>().material.color = Color.red;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        moveControl();
     }
+
+    private void moveControl() {
+
+        float moveUnit = 0.1f;
+
+        if (Input.GetKey(KeyCode.UpArrow)) {
+            this.transform.position += new Vector3(0, 0, moveUnit);
+            rotate("forward");
+        }
+
+        if (Input.GetKey(KeyCode.DownArrow))
+        {
+            this.transform.position += new Vector3(0, 0, -moveUnit);
+            rotate("back");
+        }
+
+        if (Input.GetKey(KeyCode.LeftArrow))
+        {
+            this.transform.position += new Vector3(-moveUnit, 0, 0);
+            rotate("left");
+        }
+
+        if (Input.GetKey(KeyCode.RightArrow))
+        {
+            this.transform.position += new Vector3(moveUnit, 0, 0);
+            rotate("right");
+        }
+
+    }
+
+    private void rotate(string direction) {
+
+        float rotationUnit = 10f;
+
+        if ("forward".Equals(direction))
+        {
+            this.transform.Rotate(new Vector3(rotationUnit, 0, 0));
+        }
+
+        if ("back".Equals(direction))
+        {
+            this.transform.Rotate(new Vector3(-rotationUnit, 0, 0));
+        }
+
+        if ("left".Equals(direction))
+        {
+            this.transform.Rotate(new Vector3(0, 0, rotationUnit));
+        }
+
+        if ("right".Equals(direction)) {
+            this.transform.Rotate(new Vector3(0, 0, -rotationUnit));
+        }
+    }
+
 }
