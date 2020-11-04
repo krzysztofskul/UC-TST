@@ -1,6 +1,20 @@
 // TODO
 
+#
+	- modify rotation of the player's sphere
+
+
 // TODO: DONE
 
-#0.1
-	+ moves controller for player GameObject
+#0.3 ( 
+	+ canvas on/off functionality when collision occurs;
+	+ 1st person camera dependent on pleyer position;
+	+ camera controller;
+		+ camera change functionality;
+		+ canvas main menu;
+	+ terrain;
+)
+
+#0.2 (+ collision controller between player and obstacle GameObjects)
+
+#0.1 (+ moves controller for player GameObject)
