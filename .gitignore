@@ -420,9 +420,9 @@ InitTestScene*.unity
 # End of https://www.toptal.com/developers/gitignore/api/unity,csharp
 
 ### TEXTURES ####
-*.tga
-*.tga.meta
-*.mat
-*.mat.meta
-*.jpg
-*.jpg.meta
+**/*.*.meta
+*.meta
+Assets/laxer tree pkg/*
+Assets/_TerrainAutoUpgrade/*
+Assets/Concrete textures pack/*
+Assets/NatureStarterKit2/*
