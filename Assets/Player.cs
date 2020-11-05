@@ -4,17 +4,24 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+
+    Rigidbody rigidBody;
+
     // Start is called before the first frame update
     void Start()
     {
         // TEST
         //this.GetComponent<Renderer>().material.color = Color.red;
+
+        rigidBody = this.GetComponent<Rigidbody>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
         moveControl();
+        moveControlByForce();
     }
 
     private void moveControl() {
@@ -67,6 +74,27 @@ public class Player : MonoBehaviour
 
         if ("right".Equals(direction)) {
             this.transform.Rotate(new Vector3(0, 0, -rotationUnit));
+        }
+    }
+
+    private void moveControlByForce() {
+
+        float forceUnit = 5f;
+
+        if (Input.GetKey(KeyCode.W)) {
+            rigidBody.AddForce(new Vector3(0, 0, forceUnit), ForceMode.Force);
+        }
+        if (Input.GetKey(KeyCode.A))
+        {
+            rigidBody.AddForce(new Vector3(-forceUnit, 0, 0), ForceMode.Force);
+        }
+        if (Input.GetKey(KeyCode.D))
+        {
+            rigidBody.AddForce(new Vector3(forceUnit, 0, 0), ForceMode.Force);
+        }
+        if (Input.GetKey(KeyCode.S))
+        {
+            rigidBody.AddForce(new Vector3(0, 0, -forceUnit), ForceMode.Force);
         }
     }
 

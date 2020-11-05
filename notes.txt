@@ -1,10 +1,15 @@
 // TODO
 
 #
-	- modify rotation of the player's sphere
+	- update mouse click functionalilty; get point from 3d world space;
 
 
 // TODO: DONE
+
+#0.4 (	
+	+ move control by applying force using ASDW keys
+	+ get mouse clicks test functionality
+)
 
 #0.3 ( 
 	+ canvas on/off functionality when collision occurs;
