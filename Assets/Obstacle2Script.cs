@@ -6,14 +6,25 @@ public class Obstacle2Script : MonoBehaviour
 {
 
     private int clicks = 0;
-    Camera currentCamera;
+    GameObject player;
+    Camera currentCamera, mainCamera;
     Vector3 clickedPosition;
 
     // Start is called before the first frame update
     void Start()
     {
-        currentCamera = Camera.current;
+        player = GameObject.Find("Player");
+
+        //currentCamera = Camera.current;
+        currentCamera = getPlayerCamera();
+        mainCamera = Camera.main;
+        //Debug.Log("currentCamera init.: " + currentCamera.name);
+        Debug.Log("mainCamera init.: " + mainCamera.name);
+
         currentCamera = getCurrentCamera();
+        Debug.Log("currentCamera after getCurrentCamera(): " + currentCamera.name);
+
+
         clickedPosition = Vector3.zero;
     }
 
@@ -64,16 +75,15 @@ public class Obstacle2Script : MonoBehaviour
 
         Ray ray = currentCamera.ScreenPointToRay(Input.mousePosition);
 
-        Debug.DrawRay(currentCamera.transform.position, Input.mousePosition + new Vector3(0,0,10f), Color.red);
-
         RaycastHit raycastHit;
 
-        if (Physics.Raycast(ray, out raycastHit)) {
+        if (Physics.Raycast(ray, out raycastHit, 1000f)) {
             Debug.Log("Clicked in: " + raycastHit.collider.name + " using RaycastHit!" + 
-                " Position registred: " + raycastHit.collider.transform.position
+                " Position registred: " + raycastHit.point
             );
 
-            Debug.DrawRay(currentCamera.transform.position, raycastHit.collider.transform.position, Color.yellow);
+            Debug.DrawLine(player.transform.position, raycastHit.point, Color.red, 1f);
+            Debug.DrawRay(player.transform.position, raycastHit.point, Color.yellow, 2f);
 
         }
 
@@ -82,6 +92,26 @@ public class Obstacle2Script : MonoBehaviour
     void countClicks() {
         ++clicks;
         print("---- \nClicks registered already: " + clicks);
+
+        if (clicks == 10) {
+            Destroy(GameObject.Find("Obstacle2"));
+        }
+
+    }
+
+    public static Camera getPlayerCamera() {
+        Camera[] cameras = Camera.allCameras;
+
+        foreach (Camera camera in cameras)
+        {
+            if (camera.name == "PlayerCamera")
+            {
+                return camera;
+            }
+
+        }
+
+        return Camera.main;
     }
 
 }

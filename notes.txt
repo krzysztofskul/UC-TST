@@ -1,10 +1,19 @@
 // TODO
 
 #
-	- update mouse click functionalilty; get point from 3d world space;
+	. Obstacle3.cs
+		- drag and drop functionality ...
+	- Obstacle2Script.cs updates:
+		- drag and drop functionality
+		- get current camera method fix ...
+		. draw line fixed
+		- draw ray fix ...
 
 
 // TODO: DONE
+
+#0.5
+	+ drag and drop functionality test
 
 #0.4 (	
 	+ move control by applying force using ASDW keys
