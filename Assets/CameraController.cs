@@ -15,6 +15,9 @@ public class CameraController : MonoBehaviour
         //
         print("Camera controller test ok!");
         print("Found: " + allCameras.Length + " cameras!");
+        print("Camera 1 (Main): " + allCameras[0].name + " | enabled: " + allCameras[0].enabled + " | " + allCameras[0].isActiveAndEnabled);
+        print("Camera 2 (Player): " + allCameras[1].name + " | enabled: " + allCameras[1].enabled + " | " + allCameras[1].isActiveAndEnabled);
+        setPlayerCameraEnabled();
     }
 
     // Update is called once per frame
@@ -44,8 +47,24 @@ public class CameraController : MonoBehaviour
                 allCameras[0].enabled = true;
                 pointer = 0;
             }
-
+            print("Camera 1: " + allCameras[0].name + " | enabled: " + allCameras[0].enabled + " | " + allCameras[0].isActiveAndEnabled);
+            print("Camera 2: " + allCameras[1].name + " | enabled: " + allCameras[1].enabled + " | " + allCameras[1].isActiveAndEnabled);
         }
+
+    }
+
+    public void setPlayerCameraEnabled()
+    {
+        print("Changing camera for player camera ...");
+        allCameras[0].enabled = false;
+        allCameras[1].enabled = true;
+        print("... changed!");
+        print("Camera 1 (Main): " + allCameras[0].name + " | enabled: " + allCameras[0].enabled + " | " + allCameras[0].isActiveAndEnabled);
+        print("Camera 2 (Player): " + allCameras[1].name + " | enabled: " + allCameras[1].enabled + " | " + allCameras[1].isActiveAndEnabled);
+    }
+
+    public Camera getPlayerCamera() {
+        return allCameras[1];
     }
 
 }

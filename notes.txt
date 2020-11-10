@@ -1,16 +1,15 @@
 // TODO
 
 #
-	. Obstacle3.cs
-		- drag and drop functionality ...
 	- Obstacle2Script.cs updates:
-		- drag and drop functionality
-		- get current camera method fix ...
-		. draw line fixed
-		- draw ray fix ...
+		- draw line/ray fix ...
 
 
 // TODO: DONE
+
+#0.6
+	+ drag and drop functionality updates
+	+ get current camera method updates
 
 #0.5
 	+ drag and drop functionality test
